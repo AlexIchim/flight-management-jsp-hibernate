@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="assignment2.entities.Flight" table="flights">
+		<meta attribute="class-description">
+			This class contains the flight detail.
+		</meta>
+		<id name="flight_number" type="int" column="id">
+			<generator class="identity" />
+		</id>
+
+		<property name="airplane_type" column="airplane_type" type="string" />
+		<property name="departure_date" column="departure_date" type="date" />
+		<property name="departure_time" column="departure_time" type="time" />
+		<property name="arrival_date" column="arrival_date" type="date" />
+		<property name="arrival_time" column="arrival_time" type="time"/>
+
+		<many-to-one name="departure_city" class="assignment2.entities.City"
+					 column="departure_city" unique="false" not-null="true"
+					 cascade="all" />
+
+		<many-to-one name="arrival_city" class="assignment2.entities.City"
+					 column="arrival_city" unique="false" not-null="true"
+					 cascade="all" />
+	</class>
+</hibernate-mapping>

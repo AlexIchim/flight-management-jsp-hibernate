@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="assignment2.entities.User" table="user">
+		<meta attribute="class-description">
+			This class contains the user detail.
+		</meta>
+		<id name="username" type="string" column="username">
+		</id>
+
+		<property name="password" column="password" type="string" />
+
+		<property name="role" column="ROLE">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">assignment2.enums.Role</param>
+			</type>
+		</property>
+	</class>
+</hibernate-mapping>
